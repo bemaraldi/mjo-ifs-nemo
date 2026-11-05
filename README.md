@@ -1,2 +1,3 @@
 # mjo-ifs-nemo
-Analysis code for the MJO evaluation in IFS-NEMO (W&amp;CD)
+
+This repository stores the publicly available code used for the Weather and Climate Dynamics publication on MJO evaluation in IFS-NEMO.
