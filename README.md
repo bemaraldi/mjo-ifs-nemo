@@ -1,5 +1,5 @@
 # mjo-ifs-nemo
-Analysis code for the MJO evaluation in IFS-NEMO (W&amp;CD)
+Analysis code for the MJO evaluation in IFS-NEMO (W&CD)
 
 # Vertical structure and MJO propagation in IFS-NEMO
 
@@ -12,17 +12,19 @@ the manuscript.
 
 ```text
 .
-├── WHKI09_spectrum_1950-1984.ipynb   # Wheeler-Kiladis spectra of OLR/RLUT
-├── lag-lon_SENSITIVITY.ipynb         # Lag-longitude propagation and sensitivity tests
-├── process-MSE-mn5.ipynb             # Vertically integrated moist static energy
+├── notebooks/
+│   ├── WHKI09_spectrum_1950-1984.ipynb   # Wheeler-Kiladis spectra of OLR/RLUT
+│   ├── lag-lon_SENSITIVITY.ipynb         # Lag-longitude propagation and sensitivity tests
+│   └── process-MSE-mn5.ipynb             # Vertically integrated moist static energy
 ├── scripts/
-│   └── wavenumber_frequency_functions.py
+│   └── wavenumber_frequency_functions.py # Shared helper modules
 ├── environment.yml
 └── README.md
 ```
 
-The notebooks include the figures from the original analysis. Run them in order to
-regenerate every figure and diagnostic.
+Place analysis notebooks in `notebooks/` and reusable Python modules in
+`scripts/`. The notebooks include the figures from the original analysis. Run
+them in order to regenerate every figure and diagnostic.
 
 ## Data availability
 
@@ -53,7 +55,6 @@ $MJO_ARCHIVE_ROOT/
 ├── a282/
 ├── era5-MSE/
 ├── era5-postprocessed/
-
 ```
 
 The exact file names are given in the loading cell of each notebook.
@@ -78,18 +79,17 @@ conda activate mjo-paper1
 jupyter lab
 ```
 
-Then open a notebook and run all cells. `scripts/` is added to `sys.path` by the
-configuration cell, so the vendored `wavenumber_frequency_functions.py` module is
-imported without any further setup.
+Then open a notebook from `notebooks/` and run all cells. `scripts/` is added to
+`sys.path` by the configuration cell, so the vendored
+`wavenumber_frequency_functions.py` module is imported without any further setup.
 
 ## Notebooks
 
 | Notebook | Description |
 |---|---|
-| `WHKI09_spectrum_1950-1984.ipynb` | Computes symmetric and antisymmetric wavenumber-frequency spectra of OLR/RLUT and compares ERA5/NOAA with IFS-NEMO-HR and IFS-NEMO-ER. |
-| `lag-lon_SENSITIVITY.ipynb` | Estimates MJO propagation speed from lag-longitude correlations and runs the sensitivity tests . |
-| `process-MSE-mn5.ipynb` | Computes vertically integrated moist static energy, its mean state and Nov-Apr variability, and the charged-MSE diagnostic. |
-
+| `notebooks/WHKI09_spectrum_1950-1984.ipynb` | Computes symmetric and antisymmetric wavenumber-frequency spectra of OLR/RLUT and compares ERA5/NOAA with IFS-NEMO-HR and IFS-NEMO-ER. |
+| `notebooks/lag-lon_SENSITIVITY.ipynb` | Estimates MJO propagation speed from lag-longitude correlations and runs the sensitivity tests. |
+| `notebooks/process-MSE-mn5.ipynb` | Computes vertically integrated moist static energy, its mean state and Nov-Apr variability, and the charged-MSE diagnostic. |
 
 ## Reproducibility notes
 
@@ -103,4 +103,3 @@ imported without any further setup.
   `$MJO_DATA_ROOT/clean_data/MSE/`.
 - Figure file names and the sections that produce them are documented at the end
   of the MSE notebook and in the saving cells of the other notebooks.
-
